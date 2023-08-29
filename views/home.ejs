@@ -1,1 +1,25 @@
-ciao
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div class="main">
+        <h2>Files</h2>
+        <% for (let i = 0; i < files.length; i++) {%>
+            <span><%= files[i] %> <a href="/f/<%= files[i] %>">open</a> <a href="javascript:navigator.clipboard.writeText('https://cms.ferminotify.me/f/<%= files[i] %>')">copy address</a> <a href="files/delete/<%= files[i] %>">delete</a></span> <br />
+        <% } %>
+        <h2>Upload</h2>
+        <form action="/files/new" method="POST" enctype="multipart/form-data">
+            <input type="file" id="file" name="file" value="">
+            <input type="submit" value="Upload a file">
+        </form>  
+        <br /> <br />  
+        <a href="/logout">LOGOUT</a>
+    </div>
+</body>
+</html>

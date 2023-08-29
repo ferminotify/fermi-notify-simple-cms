@@ -1,5 +1,5 @@
 const express = require(`express`);
-
+const fs = require(`fs`);
 const multer = require(`multer`);
 const bodyParser = require('body-parser');
 const session = require("express-session");
@@ -29,7 +29,7 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, 'static')));
 
-// Middleware to check if user is authenticated
+
 function isAuthenticated(req, res, next) {
     if (req.session.isAuthenticated) {
         return next();
@@ -37,6 +37,19 @@ function isAuthenticated(req, res, next) {
         res.render('/login.ejs');
     }
 }
+
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, "static/f/");
+    },
+    filename: (req, file, callback) => {
+        const fileName = `${(new Date().toJSON().slice(0, 19))}_${file.originalname}`;
+        console.log(`Created file ${fileName}`)
+        callback(null, fileName);
+    }
+});
+const upload = multer({ storage: storage });
+
 
 app.post("/login", (req, res) => {
     const { username, password } = req.body;
@@ -49,11 +62,37 @@ app.post("/login", (req, res) => {
     }
 });
 
-app.get("/", (req, res) => {
-    if (req.session.isAuthenticated)
-        res.render("home.ejs");
-    else
+app.post("/files/new", isAuthenticated, upload.single('file'), (req, res) => {
+    res.redirect("/");
+});
+
+app.get("/files/delete/:FileName", async (req, res) => {
+    if (req.session.isAuthenticated) {
+        const fileName = req.params.FileName;
+        fs.unlink(`static/f/${fileName}`, (err) => console.log(err));
+        res.redirect("/");
+    } else {
         res.render("login.ejs");
+    }
+});
+
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+});
+  
+app.get("/", (req, res) => {
+    if (req.session.isAuthenticated) {
+        let files;
+        fs.readdir('static/f/', (err, files) => {
+            if (err) {
+                return res.status(500).send('Errore nel leggere la cartella');
+            }
+            res.render("home.ejs", {files: files});
+        });        
+    } else {
+        res.render("login.ejs");
+    }
 });
 
 app.listen(PORT, () => {
