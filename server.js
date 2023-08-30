@@ -22,7 +22,6 @@ app.use(
         saveUninitialized: false
     })
 );
-app.use(express.static(path.join(__dirname, 'static')));
 
 
 // Settings for file storage
