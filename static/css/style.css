@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+a:visited {
+    color: inherit;
+}
+
 body {
     background-color: #10101E;
     color: white;
@@ -58,3 +62,7 @@ form {
     max-width: 100%;
     max-height: 100%;
 }
+
+
+
+
