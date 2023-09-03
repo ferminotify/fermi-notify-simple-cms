@@ -1,0 +1,150 @@
+.files-container{
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 30%);
+	max-width: 980px;
+	gap: 5%;
+}
+
+.file{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	border: 1px solid white;
+	transition: all 200ms cubic-bezier(0.2, 0, 0, 1);
+	cursor: pointer;
+}
+
+.file:hover{
+	background-color: #ccc;
+	color: #000;
+}
+
+.file-upper{
+	height: 200px;
+	display: grid;
+	grid-template-columns: auto 10%;
+	gap: 10px;
+	margin: 15px;
+	place-items: center;
+}
+
+.file-upper img{
+	width: 100%;
+	height: auto;
+	max-height: 200px;
+	object-fit: contain;
+}
+
+.file-ctrl{
+	margin-left: auto;
+	height: 100%;
+	width: 15px;
+	writing-mode: vertical-lr;
+  	text-orientation: upright;
+}
+
+.file-ctrl a{color: var(--primary-color);}
+
+.file-name-container{
+	max-width: 100%;
+	margin: 10px;
+}
+
+.file-name {
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+	display: inline-block;
+}
+  
+.files-upload, .files-upload form{
+	margin: 100px 0 50px 0;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.drop-container {
+	position: relative;
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px dashed #fff;
+	color: #fff;
+	cursor: pointer;
+	transition: background .2s ease-in-out, border .2s ease-in-out;
+  }
+  
+  .drop-container:hover,
+  .drop-container.drag-active {
+	background: #eee;
+	border-color: #111;
+	color: #222;
+  }
+  
+  .drop-container:hover .drop-title,
+  .drop-container.drag-active .drop-title {
+	color: #222;
+  }
+  
+  .drop-title {
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	transition: color .2s ease-in-out;
+  }
+  
+  input[type=file] {
+	width: 350px;
+	max-width: 100%;
+	color: #444;
+	padding: 5px;
+	background: #fff;
+	border-radius: 10px;
+	border: 1px solid #555;
+  }
+  
+  input[type=file]::file-selector-button {
+	margin-right: 20px;
+	border: none;
+	background: var(--primary-color);
+	padding: 10px 20px;
+	border-radius: 10px;
+	color: #fff;
+	cursor: pointer;
+	transition: background .2s ease-in-out;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+	background: var(--highlighted-background-hover);
+  }
+
+  input[type=file]::file-selector-button:active{
+	background: var(--highlighted-background-active);
+  }
+
+
+
+@media screen and (max-width: 1000px){
+	.files-container{
+		grid-template-columns: repeat(2, 50%);
+	}
+}
+
+@media screen and (max-width: 600px){
+	.files-container{
+		grid-template-columns: repeat(1, 100%);
+	}
+	input[type=file]{
+		width: 100%;
+	}
+}
