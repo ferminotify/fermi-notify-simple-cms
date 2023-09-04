@@ -83,7 +83,7 @@
 				<label for="images" class="drop-container" id="dropcontainer">
 					<span class="drop-title">Rilascia files qui</span>
 					o
-					<input type="file" id="images" accept="image/*" required>
+					<input type="file" id="file" accept="image/*" required name="file">
 				</label>
 				<input type="submit" value="Upload" class="btn-bg margin-y15px">
 			</form>
@@ -94,7 +94,7 @@
 
 	<script>
 		const dropContainer = document.getElementById("dropcontainer");
-const fileInput = document.getElementById("images");
+const fileInput = document.getElementById("file");
 
 dropContainer.addEventListener("dragover", e => {
   // prevent default to allow drop
