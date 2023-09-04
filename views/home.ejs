@@ -14,7 +14,7 @@
 	<!-- css -->
 	<link rel="stylesheet" href="/css/general.css" type="text/css">
 	<link rel="stylesheet" href="/css/home.css" type="text/css">
-	<link rel="stylesheet" href="/css/home-list.css" type="text/css" id="layoutCSS">
+	<link rel="stylesheet" href="https://cms.ferminotify.me/css/home-list.css" type="text/css" id="layoutCSS">
 	<script src="/js/hamburger.js" defer></script>
 	<!-- Font Awesome -->
 	<script src="https://kit.fontawesome.com/95ae55bd9a.js" crossorigin="anonymous"></script>
@@ -57,19 +57,19 @@
 	<script>
 		function changeLayout() {
 			var layoutCSS = document.getElementById("layoutCSS");
-			if (layoutCSS.href == "/css/home-list.css") {
-				layoutCSS.href = "/css/home-grid.css";
+			if (layoutCSS.href == "https://cms.ferminotify.me/css/home-list.css") {
+				layoutCSS.href = "https://cms.ferminotify.me/css/home-grid.css";
 				$("#layoutBtn").html("list");
 				localStorage.setItem("layout", "grid");
 			} else {
-				layoutCSS.href = "/css/home-list.css";
+				layoutCSS.href = "https://cms.ferminotify.me/css/home-list.css";
 				$("#layoutBtn").html("grid_view");
 				localStorage.setItem("layout", "list");
 			}
 		}
 		if (localStorage.getItem("layout") == "grid") {
 			var layoutCSS = document.getElementById("layoutCSS");
-			layoutCSS.href = "/css/home-grid.css";
+			layoutCSS.href = "https://cms.ferminotify.me/css/home-grid.css";
 			$("#layoutBtn").html("list");
 		}
 	</script>
