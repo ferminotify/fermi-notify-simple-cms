@@ -104,7 +104,12 @@
 		</div>
 
 		<div class="files-upload">
+			<div class="normalize_request">
+				<input name="normalizer" id="normalizer" type="checkbox" checked>
+				<label for="normalizer">Nome del file normalizzato</label>
+			</div>
 			<form action="/files/new" method="POST" enctype="multipart/form-data">
+				<div id="filename"></div>
 				<label for="images" class="drop-container" id="dropcontainer">
 					<span class="drop-title">Rilascia files qui</span>
 					o
@@ -194,6 +199,7 @@
 
 	</script>
 
+	<script src="/js/fileNameNormalizer.js" defer></script>
 </body>
 
 </html>

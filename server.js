@@ -30,7 +30,7 @@ const storage = multer.diskStorage({
         callback(null, "static/f/");
     },
     filename: (req, file, callback) => {
-        const fileName = `${(new Date().toJSON().slice(0, 19))}_${file.originalname}`;
+        const fileName = file.originalname;
         console.log(`Created file ${fileName}`)
         callback(null, fileName);
     }
