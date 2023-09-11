@@ -1,6 +1,22 @@
+.nav-btn{
+	background-color: #4d4d4d;
+	border-radius: 10px;
+}
+
+.nav-btn{
+	padding: 5px 10px;
+}
+
+.file-upload-container{
+	margin: 50px 0
+}
+
+.normalize_request{
+	text-align: center;
+}
 
 .files-upload, .files-upload form{
-	margin: 50px 0;
+	margin: 15px 0;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -26,7 +42,7 @@
   
   .drop-container:hover,
   .drop-container.drag-active {
-	background: #eee;
+	background: #aaa;
 	border-color: #111;
 	color: #222;
   }
@@ -73,18 +89,7 @@
 	background: var(--highlighted-background-active);
   }
 
-
-
-@media screen and (max-width: 1000px){
-	.files-container{
-		grid-template-columns: repeat(2, 50%);
-	}
-}
-
-@media screen and (max-width: 600px){
-	.files-container{
-		grid-template-columns: repeat(1, 100%);
-	}
+  @media screen and (max-width: 600px){
 	input[type=file]{
 		width: 100%;
 	}

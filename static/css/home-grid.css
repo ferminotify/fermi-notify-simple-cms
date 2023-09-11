@@ -69,3 +69,16 @@
 	width: 100%;
 	display: inline-block;
 }
+
+
+@media screen and (max-width: 900px){
+	.files-container{
+		grid-template-columns: repeat(2, 50%);
+	}
+}
+
+@media screen and (max-width: 600px){
+	.files-container{
+		grid-template-columns: repeat(1, 100%);
+	}
+}
